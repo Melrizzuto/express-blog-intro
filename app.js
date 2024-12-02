@@ -15,13 +15,16 @@ app.get('/', (req, res) => {
 // Rotta per la bacheca che restituisce i post come JSON
 app.get('/bacheca', (req, res) => {
     let filteredPosts = [...posts];
-
+    // uso due if se voglio utilizzare entrambi i parametri (quindi posso entrare in entrambe le condizioni)
     // Filtrare per tag
     if (req.query.tag) {
         filteredPosts = filteredPosts.filter(post =>
             post.tags.includes(req.query.tag)
-        ); // Filtrare per titolo
-    } else if (req.query.title) {
+        );
+    }
+
+    // Filtrare per titolo
+    if (req.query.title) {
         filteredPosts = filteredPosts.filter(post =>
             post.title.toLowerCase().includes(req.query.title.toLowerCase())
         );
