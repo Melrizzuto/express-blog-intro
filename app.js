@@ -20,11 +20,8 @@ app.get('/bacheca', (req, res) => {
     if (req.query.tag) {
         filteredPosts = filteredPosts.filter(post =>
             post.tags.includes(req.query.tag)
-        );
-    }
-
-    // Filtrare per titolo
-    if (req.query.title) {
+        ); // Filtrare per titolo
+    } else if (req.query.title) {
         filteredPosts = filteredPosts.filter(post =>
             post.title.toLowerCase().includes(req.query.title.toLowerCase())
         );
