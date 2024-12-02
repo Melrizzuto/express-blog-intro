@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 // Rotta per la bacheca che restituisce i post come JSON
 app.get('/bacheca', (req, res) => {
-    let filteredPosts = posts;
+    let filteredPosts = [...posts];
 
     // Filtrare per tag
     if (req.query.tag) {
