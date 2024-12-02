@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
-const Port = 3000;
+const PORT = 3000;
 
+// Rotta principale
+app.get('/', (req, res) => {
+    res.send('Server del mio blog');
+});
 
-//app.get('/', (req, res) => res.send('Hello world')
-
-//app.listen(port, () => { console.log(`Example app listening on port ${port}`)})
+// Avvio del server
+app.listen(PORT, () => {
+    console.log(`Server avviato su http://localhost:${PORT}`);
+});
